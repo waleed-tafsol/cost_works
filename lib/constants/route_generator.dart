@@ -1,9 +1,10 @@
+import 'package:costworks/ui/screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../ui/screen/splash_screen.dart';
 
 const String splashScreen = '/';
-// const String onboardingScreen = '/onboarding_Screen';
+const String onboardingScreen = '/onboarding_Screen';
 // const String loginScreen = '/login_Screen';
 // const String signUpScreen = '/sign_up_screen';
 // const String forgotPasswordScreen = '/forgot_password_screen';
@@ -31,11 +32,11 @@ class RouteGenerator {
           settings: RouteSettings(name: splashScreen),
           builder: (_) => SplashScreen(),
         );
-      // case onboardingScreen:
-      //   return MaterialPageRoute(
-      //     settings: RouteSettings(name: onboardingScreen),
-      //     builder: (_) => OnboardingScreen(),
-      //   );
+      case onboardingScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: onboardingScreen),
+          builder: (_) => OnboardingScreen(),
+        );
       // case loginScreen:
       //   return MaterialPageRoute(
       //     settings: RouteSettings(name: loginScreen),

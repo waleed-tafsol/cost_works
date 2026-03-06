@@ -8,19 +8,19 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData.from(
       colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.kPrimaryColor,
+        seedColor: AppColors.primaryColor,
         brightness: Brightness.light,
       ),
     ).copyWith(
       brightness: Brightness.light,
 
-      // primaryColor: AppColors.kPrimaryColor,
+      // primaryColor: AppColors.primaryColor,
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.white,
-        foregroundColor: AppColors.blackColor,
+        foregroundColor: AppColors.black,
         titleTextStyle: TextStyle(
-          color: AppColors.blackColor,
+          color: AppColors.black,
           fontSize: 20.sp,
           fontWeight: FontWeight.w600,
         ),
@@ -28,44 +28,10 @@ class AppTheme {
         elevation: 0,
         // centerTitle: true,
       ),
-      textTheme: TextTheme(
-        headlineLarge: TextStyle(
-          fontSize: 25.sp,
-          color: AppColors.blackColor,
-          fontWeight: FontWeight.w600,
-        ),
-        headlineMedium: TextStyle(
-          fontSize: 16.sp,
-          color: AppColors.blackColor,
-          fontWeight: FontWeight.w600,
-        ),
-        headlineSmall: TextStyle(
-          color: AppColors.blackColor,
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w500,
-        ),
-        displayLarge: TextStyle(
-          fontSize: 15.sp,
-          color: AppColors.textGreyColor,
 
-          fontWeight: FontWeight.w400,
-        ),
-
-        bodyMedium: TextStyle(
-          fontSize: 15.sp,
-          color: AppColors.blackColor,
-
-          fontWeight: FontWeight.w400,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 13.sp,
-          color: AppColors.blackColor,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
       // Text Selection Theme for cursor color
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: AppColors.kPrimaryColor, // Cursor color
+        cursorColor: AppColors.primaryColor, // Cursor color
       ),
 
       iconTheme: const IconThemeData(color: Colors.black54),
@@ -83,7 +49,7 @@ class AppTheme {
           Set<WidgetState> states,
         ) {
           if (states.contains(WidgetState.selected)) {
-            return AppColors.kPrimaryColor;
+            return AppColors.primaryColor;
           }
           return null;
         }),
@@ -96,8 +62,8 @@ class AppTheme {
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
           ),
-          foregroundColor: AppColors.kPrimaryColor,
-          side: BorderSide(color: AppColors.kPrimaryColor),
+          foregroundColor: AppColors.primaryColor,
+          side: BorderSide(color: AppColors.primaryColor),
           // padding: EdgeInsets.symmetric(vertical: 19.5.h),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.r),
@@ -113,7 +79,7 @@ class AppTheme {
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
           ),
-          backgroundColor: AppColors.kPrimaryColor,
+          backgroundColor: AppColors.primaryColor,
           foregroundColor: Colors.white,
           // padding: EdgeInsets.symmetric(vertical: 19.5.h),
           shape: RoundedRectangleBorder(
@@ -133,7 +99,7 @@ class AppTheme {
         fillColor: AppColors.textFieldFillColor,
         errorStyle: TextStyle(fontSize: 11.sp, overflow: TextOverflow.visible),
         errorMaxLines: 2,
-        suffixIconColor: AppColors.textGreyColor,
+        suffixIconColor: AppColors.iconColor,
 
         hintStyle: TextStyle(
           height: 0,
@@ -184,7 +150,7 @@ class AppTheme {
         bodyLarge: TextStyle(color: Colors.white, fontSize: 16),
         bodyMedium: TextStyle(color: Colors.white70, fontSize: 14),
       ),
-      iconTheme: const IconThemeData(color: AppColors.blackColor),
+      iconTheme: const IconThemeData(color: AppColors.black),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue[400],

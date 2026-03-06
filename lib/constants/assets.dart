@@ -2,6 +2,8 @@
 
 class PngAssets {
   static const String _assets = 'assets/png/';
+  //splah logo
+  static const String logo = '${_assets}logo.png';
   // on boarding images
   // static const String logo = '${_assets}logo.png';
 }
@@ -15,6 +17,13 @@ class gifAssets {
   static const String _assets = 'assets/gif/';
 
   // static const String logAnimation = '${_assets}logo_animate.gif';
+}
+
+class VideoAssets {
+  static const String _assets = 'assets/video/';
+
+  static const String onBoardingBackground =
+      '${_assets}onboarding_background.mp4';
 }
 
 class SvgAssets {
