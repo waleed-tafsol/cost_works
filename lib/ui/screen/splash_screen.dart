@@ -1,6 +1,5 @@
 import 'package:costworks/constants/assets.dart';
 import 'package:costworks/constants/color_constants.dart';
-import 'package:costworks/ui/screen/onboarding_screen.dart';
 import 'package:costworks/utils/custom_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

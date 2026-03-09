@@ -1,5 +1,6 @@
 import 'package:costworks/constants/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../constants/color_constants.dart';
@@ -13,6 +14,8 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   late VideoPlayerController _controller;
+  final PageController _pageController = PageController();
+  int _currentindex = 0;
 
   @override
   void initState() {
@@ -66,25 +69,80 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
 
           /// TEXT UI
-          Positioned(
-            bottom: 100,
-            left: 20,
-            right: 20,
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 20.w),
             child: Column(
-              children: const [
-                Text(
-                  "CostWorks",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
+              children: [
+                Image.asset(PngAssets.logo, height: 45.h),
+                Spacer(),
+                Expanded(
+                  child: PageView(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentindex = index;
+                      });
+                    },
+
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "Optimize Your Utility Bills and Save More",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 12.h),
+                          Text(
+                            "Let us analyze your utility bills and find the best deals to help you save more.",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Easy Bill Upload & Info Capture",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 12.h),
+                          Text(
+                            "Capture or upload your bill (PDF or photo) and enter your details manually or via business card capture.",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: 12),
-                Text(
-                  "Helping your business maximize profits\nand minimize expenses",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
+
+                SizedBox(height: 80.h),
+                ElevatedButton(
+                  onPressed: () {
+                    _pageController.animateTo(
+                      _currentindex + 1,
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeIn,
+                    );
+                  },
+                  child: Text(_currentindex == 0 ? "Continue" : "Get Started"),
                 ),
               ],
             ),
