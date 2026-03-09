@@ -10,6 +10,7 @@ import '../../constants/assets.dart';
 import '../../constants/color_constants.dart';
 import '../../utils/custom_fonts.dart';
 import '../widgets/app_gradient_button.dart';
+import '../widgets/sheets/add_screen_sheet.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -51,6 +52,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
+  void _onContinue() {
+    AddScreenSheet.show(context: context);
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -61,67 +66,69 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          /// VIDEO BACKGROUND
-          if (_controller.value.isInitialized)
-            FittedBox(
-              fit: BoxFit.cover,
-              child: SizedBox(
-                width: _controller.value.size.width,
-                height: _controller.value.size.height,
-                child: VideoPlayer(_controller),
+      body: SafeArea(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            /// VIDEO BACKGROUND
+            if (_controller.value.isInitialized)
+              FittedBox(
+                fit: BoxFit.cover,
+                child: SizedBox(
+                  width: _controller.value.size.width,
+                  height: _controller.value.size.height,
+                  child: VideoPlayer(_controller),
+                ),
+              ),
+
+            /// GRADIENT OVERLAY
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppColors.red.withValues(alpha: 0.4),
+                    AppColors.darkPrimaryColor,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
               ),
             ),
 
-          /// GRADIENT OVERLAY
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.red.withValues(alpha: 0.4),
-                  AppColors.darkPrimaryColor,
+            /// TEXT UI
+            Positioned(
+              top: 48.h,
+              bottom: 40.h,
+              left: 24.w,
+              right: 24.w,
+              child: Column(
+                children: [
+                  Hero(
+                    tag: 'logo_white',
+                    child: SvgPicture.asset(
+                      SvgAssets.logoWhite,
+                      width: 85.w,
+                      height: 48.h,
+                    ),
+                  ),
+                  const Spacer(),
+                  AnimatedSize(
+                    duration: const Duration(milliseconds: 300),
+                    child: ValueListenableBuilder(
+                      valueListenable: _viewNotifier,
+                      builder: (context, showLogin, _) {
+                        if (showLogin) {
+                          return _buildLoginWithView();
+                        }
+                        return _buildOnboardingView();
+                      },
+                    ),
+                  ),
                 ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
               ),
             ),
-          ),
-
-          /// TEXT UI
-          Positioned(
-            top: 48.h,
-            bottom: 40.h,
-            left: 24.w,
-            right: 24.w,
-            child: Column(
-              children: [
-                Hero(
-                  tag: 'logo_white',
-                  child: SvgPicture.asset(
-                    SvgAssets.logoWhite,
-                    width: 85.w,
-                    height: 48.h,
-                  ),
-                ),
-                const Spacer(),
-                AnimatedSize(
-                  duration: const Duration(milliseconds: 300),
-                  child: ValueListenableBuilder(
-                    valueListenable: _viewNotifier,
-                    builder: (context, showLogin, _) {
-                      if (showLogin) {
-                        return _buildLoginWithView();
-                      }
-                      return _buildOnboardingView();
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -205,19 +212,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 24.h),
-        AppGradientButton(label: 'Continue With Email', onTap: () {}),
+        AppGradientButton(label: 'Continue With Email', onTap: _onContinue),
         Padding(
           padding: EdgeInsets.symmetric(vertical: 24.h),
           child: Text('Or', style: CustomFonts.white14w400),
         ),
         ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: _onContinue,
           icon: Icon(TablerIcons.brand_google, size: 24.sp),
           label: Text('Continue with Google', style: CustomFonts.black14w400),
         ),
         SizedBox(height: 24.h),
         ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: _onContinue,
           icon: Icon(TablerIcons.brand_apple, size: 24.sp),
           label: Text('Continue with Apple', style: CustomFonts.black14w400),
         ),

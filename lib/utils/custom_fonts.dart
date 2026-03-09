@@ -64,6 +64,10 @@ abstract final class CustomFonts {
     fontWeight: FontWeight.w400,
   );
 
+  static TextStyle black14w600 = black14w400.copyWith(
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle black16w500 = _base.copyWith(
     fontWeight: FontWeight.w500,
     fontSize: 16.sp,

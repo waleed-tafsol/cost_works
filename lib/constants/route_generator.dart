@@ -6,6 +6,7 @@ import '../utils/app_page_route.dart';
 
 const String splashScreen = '/';
 const String onboardingScreen = '/onboarding_Screen';
+const String addCardScreen = '/add_card_screen';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

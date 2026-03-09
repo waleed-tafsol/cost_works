@@ -8,5 +8,6 @@ class AppColors {
   static const Color white = Colors.white;
   static const Color textFieldFillColor = Color(0xFFF6F8F9);
   static const Color iconColor = Color(0xFFA1A1A1);
-  static const Color borderColor = Color(0xFFEEEFF3);
+  static const Color borderColor = Color(0xFFF3F3F3);
+  static const Color secondaryColor = Color(0xFFE68C8C);
 }

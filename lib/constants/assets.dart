@@ -24,4 +24,5 @@ abstract final class SvgAssets {
   static const String _assets = 'assets/svg/';
   static const String logo = '${_assets}logo.svg';
   static const String logoWhite = '${_assets}logo_white.svg';
+  static const String businessCard = '${_assets}business_card.svg';
 }

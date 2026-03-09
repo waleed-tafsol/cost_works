@@ -128,8 +128,17 @@ class AppTheme {
       ),
       bottomSheetTheme: BottomSheetThemeData(
         dragHandleColor: const Color(0xffCDCFD0),
+        modalBarrierColor: Colors.transparent,
         backgroundColor: Colors.white,
         dragHandleSize: Size(48.w, 5.h),
+        constraints: BoxConstraints(minHeight: 0.789.sh, maxHeight: 0.789.sh),
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(24.r),
+            topRight: Radius.circular(24.r),
+          ),
+        ),
       ),
     );
   }

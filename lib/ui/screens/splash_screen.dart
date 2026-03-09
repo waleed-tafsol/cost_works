@@ -87,7 +87,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 70.w),
       child: GestureDetector(
-        onTap: () => Navigator.pushNamed(context, onboardingScreen),
+        onTap: () {
+          if (kDebugMode) {
+            Navigator.pushNamed(context, onboardingScreen);
+          }
+        },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
