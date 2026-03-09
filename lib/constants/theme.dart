@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'color_constants.dart';
 
@@ -13,7 +14,13 @@ class AppTheme {
       ),
     ).copyWith(
       brightness: Brightness.light,
-
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: <TargetPlatform, PageTransitionsBuilder>{
+          // Set the predictive back transitions for Android.
+          TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+        },
+      ),
+      textTheme: GoogleFonts.poppinsTextTheme(),
       // primaryColor: AppColors.primaryColor,
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: AppBarTheme(
@@ -24,13 +31,12 @@ class AppTheme {
           fontSize: 20.sp,
           fontWeight: FontWeight.w600,
         ),
-
         elevation: 0,
         // centerTitle: true,
       ),
 
       // Text Selection Theme for cursor color
-      textSelectionTheme: TextSelectionThemeData(
+      textSelectionTheme: const TextSelectionThemeData(
         cursorColor: AppColors.primaryColor, // Cursor color
       ),
 
@@ -44,7 +50,7 @@ class AppTheme {
       checkboxTheme: CheckboxThemeData(
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.compact,
-        checkColor: WidgetStatePropertyAll(Colors.white),
+        checkColor: const WidgetStatePropertyAll(Colors.white),
         fillColor: WidgetStateProperty.resolveWith<Color?>((
           Set<WidgetState> states,
         ) {
@@ -63,7 +69,7 @@ class AppTheme {
             fontWeight: FontWeight.w600,
           ),
           foregroundColor: AppColors.primaryColor,
-          side: BorderSide(color: AppColors.primaryColor),
+          side: const BorderSide(color: AppColors.primaryColor),
           // padding: EdgeInsets.symmetric(vertical: 19.5.h),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.r),
@@ -73,17 +79,17 @@ class AppTheme {
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          fixedSize: Size(double.infinity, 48.h),
           minimumSize: Size(double.infinity, 50.h),
           textStyle: TextStyle(
             height: 0,
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w600,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w500,
           ),
-          backgroundColor: AppColors.primaryColor,
-          foregroundColor: Colors.white,
-          // padding: EdgeInsets.symmetric(vertical: 19.5.h),
+          backgroundColor: AppColors.white,
+          foregroundColor: AppColors.black,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(16.r),
           ),
         ),
       ),
@@ -109,19 +115,19 @@ class AppTheme {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.r),
-          borderSide: BorderSide(color: AppColors.textFieldFillColor),
+          borderSide: const BorderSide(color: AppColors.textFieldFillColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.r),
-          borderSide: BorderSide(color: AppColors.textFieldFillColor),
+          borderSide: const BorderSide(color: AppColors.textFieldFillColor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.r),
-          borderSide: BorderSide(color: AppColors.textFieldFillColor),
+          borderSide: const BorderSide(color: AppColors.textFieldFillColor),
         ),
       ),
       bottomSheetTheme: BottomSheetThemeData(
-        dragHandleColor: Color(0xffCDCFD0),
+        dragHandleColor: const Color(0xffCDCFD0),
         backgroundColor: Colors.white,
         dragHandleSize: Size(48.w, 5.h),
       ),
@@ -140,6 +146,12 @@ class AppTheme {
         foregroundColor: Colors.white,
         elevation: 1,
         centerTitle: true,
+      ),
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: <TargetPlatform, PageTransitionsBuilder>{
+          // Set the predictive back transitions for Android.
+          TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+        },
       ),
       textTheme: const TextTheme(
         headlineLarge: TextStyle(

@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'app_init.dart';
 import 'constants/color_constants.dart';
 
@@ -38,20 +41,23 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await StorageService().init();
-
-  // await SecureStorageService().init();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarIconBrightness: Brightness.light,
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+    ),
+  );
+  await _initializeFonts();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await ScreenUtil.ensureScreenSize();
-  runApp(
-    // MultiProvider(
-    //   providers: [
-    //     // ChangeNotifierProvider(create: (context) => ThemeViewModel()),
-    //     // ChangeNotifierProvider(create: (context) => BottomNavViewModel()),
-    //     // ChangeNotifierProvider(create: (context) => AuthViewModel()),
-    //   ],
-    //   child:
-    AppInit(),
-    // ),
-  );
+  runApp(AppInit());
+}
+
+Future<void> _initializeFonts() async {
+  try {
+    await GoogleFonts.pendingFonts([GoogleFonts.poppinsTextTheme()]);
+  } catch (e, s) {
+    log(e.toString(), stackTrace: s);
+  }
 }
