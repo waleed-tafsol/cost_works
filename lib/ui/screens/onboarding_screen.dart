@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -219,6 +220,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           onPressed: () {},
           icon: Icon(TablerIcons.brand_apple, size: 24.sp),
           label: Text('Continue with Apple', style: CustomFonts.black14w400),
+        ),
+        SizedBox(height: 24.h),
+        RichText(
+          text: TextSpan(
+            text: 'Already have an account? ',
+            style: CustomFonts.white14w400,
+            children: [
+              TextSpan(
+                text: 'Login',
+                recognizer: TapGestureRecognizer()..onTap = () {},
+                style: CustomFonts.white14w400.copyWith(
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
