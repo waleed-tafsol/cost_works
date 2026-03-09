@@ -7,16 +7,18 @@ import '../../../constants/assets.dart';
 import '../../../constants/color_constants.dart';
 import '../../../utils/custom_fonts.dart';
 import '../app_gradient_button.dart';
+import '../app_gradient_text.dart';
+import 'manual_card_sheet.dart';
 
-class AddScreenSheet extends StatelessWidget {
-  const AddScreenSheet._();
+class AddCardScreenSheet extends StatelessWidget {
+  const AddCardScreenSheet._();
 
   static Future<void> show({required BuildContext context}) async {
     return await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder: (_) {
-        return const AddScreenSheet._();
+        return const AddCardScreenSheet._();
       },
     );
   }
@@ -25,23 +27,17 @@ class AddScreenSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 40.h),
         child: Column(
           crossAxisAlignment: .center,
           children: [
-            SizedBox(height: 40.h),
-            ShaderMask(
-              shaderCallback: (rect) => const LinearGradient(
-                colors: [Color(0xFFCA0013), AppColors.primaryColor],
-              ).createShader(rect),
-              child: Text('Welcome!', style: CustomFonts.white24w600),
-            ),
+            const AppGradientText('Welcome!'),
             SizedBox(height: 8.h),
             RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
                 text: 'Capture or upload your ',
-                style: CustomFonts.black14w400,
+                style: CustomFonts.grey14w400,
                 children: [
                   TextSpan(
                     text: 'Business Card ',
@@ -49,7 +45,7 @@ class AddScreenSheet extends StatelessWidget {
                   ),
                   TextSpan(
                     text: 'or enter your personal details manually.',
-                    style: CustomFonts.black14w400,
+                    style: CustomFonts.grey14w400,
                   ),
                 ],
               ),
@@ -67,10 +63,12 @@ class AddScreenSheet extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.borderColor,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+                ManualCardSheet.show(context: context);
+              },
               child: const Text('Enter Details Manually'),
             ),
-            SizedBox(height: MediaQuery.paddingOf(context).bottom + 20.h),
           ],
         ),
       ),

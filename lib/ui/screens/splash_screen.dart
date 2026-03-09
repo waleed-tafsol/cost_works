@@ -35,7 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
         _animateText = true;
       });
       await Future.delayed(_duration + Durations.long1);
-      Navigator.pushNamed(context, onboardingScreen);
+      if (kDebugMode) {
+        Navigator.pushNamed(context, onboardingScreen);
+      } else {
+        Navigator.pushReplacementNamed(context, onboardingScreen);
+      }
     });
   }
 

@@ -10,7 +10,7 @@ import '../../constants/assets.dart';
 import '../../constants/color_constants.dart';
 import '../../utils/custom_fonts.dart';
 import '../widgets/app_gradient_button.dart';
-import '../widgets/sheets/add_screen_sheet.dart';
+import '../widgets/sheets/add_card_screen_sheet.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -53,7 +53,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _onContinue() {
-    AddScreenSheet.show(context: context);
+    AddCardScreenSheet.show(context: context);
   }
 
   @override
@@ -66,69 +66,67 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            /// VIDEO BACKGROUND
-            if (_controller.value.isInitialized)
-              FittedBox(
-                fit: BoxFit.cover,
-                child: SizedBox(
-                  width: _controller.value.size.width,
-                  height: _controller.value.size.height,
-                  child: VideoPlayer(_controller),
-                ),
-              ),
-
-            /// GRADIENT OVERLAY
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.red.withValues(alpha: 0.4),
-                    AppColors.darkPrimaryColor,
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          /// VIDEO BACKGROUND
+          if (_controller.value.isInitialized)
+            FittedBox(
+              fit: BoxFit.cover,
+              child: SizedBox(
+                width: _controller.value.size.width,
+                height: _controller.value.size.height,
+                child: VideoPlayer(_controller),
               ),
             ),
 
-            /// TEXT UI
-            Positioned(
-              top: 48.h,
-              bottom: 40.h,
-              left: 24.w,
-              right: 24.w,
-              child: Column(
-                children: [
-                  Hero(
-                    tag: 'logo_white',
-                    child: SvgPicture.asset(
-                      SvgAssets.logoWhite,
-                      width: 85.w,
-                      height: 48.h,
-                    ),
-                  ),
-                  const Spacer(),
-                  AnimatedSize(
-                    duration: const Duration(milliseconds: 300),
-                    child: ValueListenableBuilder(
-                      valueListenable: _viewNotifier,
-                      builder: (context, showLogin, _) {
-                        if (showLogin) {
-                          return _buildLoginWithView();
-                        }
-                        return _buildOnboardingView();
-                      },
-                    ),
-                  ),
+          /// GRADIENT OVERLAY
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.red.withValues(alpha: 0.4),
+                  AppColors.darkPrimaryColor,
                 ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
-          ],
-        ),
+          ),
+
+          /// TEXT UI
+          Positioned(
+            top: 48.h,
+            bottom: 40.h,
+            left: 24.w,
+            right: 24.w,
+            child: Column(
+              children: [
+                Hero(
+                  tag: 'logo_white',
+                  child: SvgPicture.asset(
+                    SvgAssets.logoWhite,
+                    width: 85.w,
+                    height: 48.h,
+                  ),
+                ),
+                const Spacer(),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 300),
+                  child: ValueListenableBuilder(
+                    valueListenable: _viewNotifier,
+                    builder: (context, showLogin, _) {
+                      if (showLogin) {
+                        return _buildLoginWithView();
+                      }
+                      return _buildOnboardingView();
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -42,11 +42,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarIconBrightness: Brightness.light,
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ),
+    const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
   );
   await _initializeFonts();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

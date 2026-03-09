@@ -85,9 +85,9 @@ abstract final class CustomFonts {
   //   fontSize: 12.sp,
   // );
 
-  // static TextStyle grey14w400 = _base.copyWith(
-  //   fontSize: 14.sp,
-  //   fontWeight: FontWeight.w400,
-  //   color: AppColors.greyColor,
-  // );
+  static TextStyle grey14w400 = _base.copyWith(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.grey,
+  );
 }
