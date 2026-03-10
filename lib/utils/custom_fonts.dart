@@ -17,6 +17,10 @@ abstract final class CustomFonts {
     fontWeight: FontWeight.w500,
     fontSize: 14.sp,
   );
+
+  static TextStyle white14w400 = white14w500.copyWith(
+    fontWeight: FontWeight.w400,
+  );
   static TextStyle white16w600 = white12w400.copyWith(
     fontSize: 16.sp,
     fontWeight: FontWeight.w600,
@@ -25,6 +29,10 @@ abstract final class CustomFonts {
     color: AppColors.white,
     fontWeight: FontWeight.w700,
     fontSize: 45.sp,
+  );
+  static TextStyle white32w600 = white45w700.copyWith(
+    fontSize: 32.sp,
+    fontWeight: FontWeight.w600,
   );
   static TextStyle white9w400 = _base.copyWith(
     color: AppColors.white,
@@ -49,9 +57,15 @@ abstract final class CustomFonts {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle black14w500 = black12w500.copyWith(fontSize: 14.sp);
+
   static TextStyle black14w400 = _base.copyWith(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle black14w600 = black14w400.copyWith(
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle black16w500 = _base.copyWith(
@@ -71,9 +85,9 @@ abstract final class CustomFonts {
   //   fontSize: 12.sp,
   // );
 
-  // static TextStyle grey14w400 = _base.copyWith(
-  //   fontSize: 14.sp,
-  //   fontWeight: FontWeight.w400,
-  //   color: AppColors.greyColor,
-  // );
+  static TextStyle grey14w400 = _base.copyWith(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.grey,
+  );
 }

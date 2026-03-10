@@ -1,6 +1,6 @@
 // ignore_for_file: camel_case_types
 
-class PngAssets {
+abstract final class PngAssets {
   static const String _assets = 'assets/png/';
   //splah logo
   static const String logo = '${_assets}logo.png';
@@ -8,29 +8,21 @@ class PngAssets {
   // static const String logo = '${_assets}logo.png';
 }
 
-class DummyAssets {
-  static const String _assets = 'assets/dummy/';
+abstract final class DummyAssets {
+  // static const String _assets = 'assets/dummy/';
   // static const String person = '${_assets}person.png';
 }
 
-class gifAssets {
-  static const String _assets = 'assets/gif/';
-
-  // static const String logAnimation = '${_assets}logo_animate.gif';
-}
-
-class VideoAssets {
+abstract final class VideoAssets {
   static const String _assets = 'assets/video/';
 
   static const String onBoardingBackground =
       '${_assets}onboarding_background.mp4';
 }
 
-class SvgAssets {
+abstract final class SvgAssets {
   static const String _assets = 'assets/svg/';
-  // static const String apple = '${_assets}apple.svg';
-}
-
-class lottieAssets {
-  // static const String _assets = 'assets/Lottie/';
+  static const String logo = '${_assets}logo.svg';
+  static const String logoWhite = '${_assets}logo_white.svg';
+  static const String businessCard = '${_assets}business_card.svg';
 }

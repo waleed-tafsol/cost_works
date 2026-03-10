@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'constants/route_generator.dart';
 import 'constants/theme.dart';
 import 'main.dart';
@@ -25,7 +26,7 @@ class AppInit extends StatelessWidget {
         return MaterialApp(
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
-          title: 'Cost Works',
+          title: 'CostWorks',
           initialRoute: splashScreen,
           onGenerateRoute: RouteGenerator.generateRoute,
           // home: WalletTransactionScreen(),
