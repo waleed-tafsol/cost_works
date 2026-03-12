@@ -21,6 +21,7 @@ class ManualCardSheet extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 40.h),
         child: Column(
+          crossAxisAlignment: .start,
           children: [
             const AppGradientText('Enter Your Details'),
             SizedBox(height: 8.h),
@@ -28,6 +29,12 @@ class ManualCardSheet extends StatelessWidget {
               'Fill in the following details to help us personalize your experience.',
               style: CustomFonts.grey14w400,
               textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 24.h),
+            Text("Full Name", style: CustomFonts.black14w400),
+            SizedBox(height: 10.h),
+            TextFormField(
+              decoration: const InputDecoration(hintText: "Enter Full Name"),
             ),
           ],
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../utils/custom_fonts.dart';
 import 'color_constants.dart';
 
 class AppTheme {
@@ -100,30 +101,25 @@ class AppTheme {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 19.h),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         filled: true,
         fillColor: AppColors.textFieldFillColor,
         errorStyle: TextStyle(fontSize: 11.sp, overflow: TextOverflow.visible),
         errorMaxLines: 2,
         suffixIconColor: AppColors.iconColor,
 
-        hintStyle: TextStyle(
-          height: 0,
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          color: Colors.grey,
-        ),
+        hintStyle: CustomFonts.grey14w400,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.r),
-          borderSide: const BorderSide(color: AppColors.textFieldFillColor),
+          borderSide: const BorderSide(color: AppColors.borderColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.r),
-          borderSide: const BorderSide(color: AppColors.textFieldFillColor),
+          borderSide: const BorderSide(color: AppColors.borderColor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.r),
-          borderSide: const BorderSide(color: AppColors.textFieldFillColor),
+          borderSide: const BorderSide(color: AppColors.borderColor),
         ),
       ),
       bottomSheetTheme: BottomSheetThemeData(
