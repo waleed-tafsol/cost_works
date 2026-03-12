@@ -44,6 +44,10 @@ dependencies:
   flutter_svg: ^2.2.4
   gradient_borders: ^1.0.2
   avatar_glow: ^3.0.1
+  country_picker: ^2.0.27
+  pinput: ^6.0.1
+  mobile_scanner: ^7.2.0
+  dotted_border: ^3.1.0
 
 dev_dependencies:
   flutter_test:

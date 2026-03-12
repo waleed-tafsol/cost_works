@@ -17,6 +17,12 @@ abstract final class CustomFonts {
     fontWeight: FontWeight.w500,
     fontSize: 14.sp,
   );
+  static TextStyle white13w500 = _base.copyWith(
+    color: AppColors.white,
+    fontWeight: FontWeight.w500,
+    fontSize: 14.sp,
+  );
+
 
   static TextStyle white14w400 = white14w500.copyWith(
     fontWeight: FontWeight.w400,
@@ -33,6 +39,10 @@ abstract final class CustomFonts {
   static TextStyle white32w600 = white45w700.copyWith(
     fontSize: 32.sp,
     fontWeight: FontWeight.w600,
+  );
+  static TextStyle white24w400 = white12w400.copyWith(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w400,
   );
   static TextStyle white9w400 = _base.copyWith(
     color: AppColors.white,

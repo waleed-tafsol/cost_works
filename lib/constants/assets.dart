@@ -4,6 +4,7 @@ abstract final class PngAssets {
   static const String _assets = 'assets/png/';
   //splah logo
   static const String logo = '${_assets}logo.png';
+  static const String gradientCheck = '${_assets}gradient_check.png';
   // on boarding images
   // static const String logo = '${_assets}logo.png';
 }

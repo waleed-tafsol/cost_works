@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants/assets.dart';
 import '../../../constants/color_constants.dart';
+import '../../../constants/route_generator.dart';
 import '../../../utils/custom_fonts.dart';
 import '../app_gradient_button.dart';
 import '../app_gradient_text.dart';
@@ -57,7 +58,12 @@ class AddCardScreenSheet extends StatelessWidget {
                 child: SvgPicture.asset(SvgAssets.businessCard),
               ),
             ),
-            const AppGradientButton(label: 'Capture Business Card'),
+            AppGradientButton(
+              label: 'Capture Business Card',
+              onTap: () {
+                Navigator.pushNamed(context, qrScannerScreen);
+              },
+            ),
             SizedBox(height: 12.h),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
